@@ -1,45 +1,24 @@
 import logo from './logo.svg';
 import './App.css';
-import { useState } from 'react';
+import Product from './Product';
+
+const products = [
+  { name: 'Cabbage', id: 1 },
+  { name: 'Garlic', id: 2 },
+  { name: 'Apple', id: 3 },
+  { name: 'Carrot', id: 4},
+];
 
 
 export default function App() {
-  const [count, setCount] = useState(0)
-
-  function addProduct() {
-    setCount(count + 1);
-  }
-
-  function subtractProduct() {
-    if (count > 0) {
-      setCount(count - 1);
-    }
-  }
-
-  return (
-    <div className="CartCount">
-        <p>
-          <AddButton onClick={addProduct}/>
-          {count}
-          <SubtractButton onClick={subtractProduct}/>
-        </p>
-    </div>
+  const listItems = products.map(product =>
+    <li
+      key={product.id}
+    >
+      <Product name={product.name} />
+    </li>
   );
-}
-
-
-function AddButton({onClick}) {
   return (
-    <button onClick={onClick}>
-      +
-    </button>
-  )
-}
-
-function SubtractButton({onClick}) {
-  return (
-    <button onClick={onClick}>
-      -
-    </button>
-  )
+    <ul>{listItems}</ul>
+  );
 }
