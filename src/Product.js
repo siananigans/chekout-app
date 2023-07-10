@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import './Product.css'
 
 function Product({name}) {
     const [count, setCount] = useState(0);
@@ -15,12 +15,12 @@ function Product({name}) {
     }
   
     return (
-      <div className="CartCount">
+      <div className="Product">
           <p>
             {name}
-            <AddButton onClick={addProduct}/>
-            {count}
             <SubtractButton onClick={subtractProduct}/>
+            {count}
+            <AddButton onClick={addProduct}/>
           </p>
       </div>
     );
